@@ -173,7 +173,7 @@ public class PaymentActivity extends AppCompatActivity {
   }
 
   public static boolean isOnline(String code) {
-    return code.substring(0, 4).equals("8600");
+    return code.substring(0, 4).equals("8600") || code.substring(0, 4).equals("9860");
   }
 
   public void showError(String s) {
