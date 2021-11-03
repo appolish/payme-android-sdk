@@ -129,7 +129,7 @@ public class PaymentActivity extends AppCompatActivity {
     amount = Math.floor(amount * 100.0) / 100.0;
     save = getIntent().getBooleanExtra(EXTRA_SAVE, false);
     if (amount <= 0) {setResult(RESULT_CANCELED); finish();}
-    activityMainPaymentSum.setText(formatMoney(amount, true) + " " + resources.getString(R.string.card_balance_currency));
+    activityMainPaymentSum.setText(formatMoney(amount, false) + " " + resources.getString(R.string.card_balance_currency));
     activityMainCardRemember.setVisibility(save ? View.VISIBLE : View.GONE);
   }
 
