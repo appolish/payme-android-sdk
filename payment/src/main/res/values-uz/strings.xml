@@ -2,7 +2,7 @@
     <string name="app_name">Paycom</string>
     <string name = "paymentSum">To\'lov summasi</string>
     <string name = "cardNumber">Kartaning raqami</string>
-    <string name = "uzcardOnly">Faqat Uzcard online kartalari</string>
+    <string name = "uzcardOnly">Faqat Uzcard va HUMO kartalari qo\'llab quvvatlanadi</string>
     <string name = "dateExpire">Kartaning amal qilish muddati</string>
     <string name = "cardRemember">Kartani saqlab qo\'ying</string>
     <string name = "continueText">Oldinga</string>
