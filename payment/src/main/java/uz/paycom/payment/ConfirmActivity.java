@@ -6,7 +6,6 @@ import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
@@ -16,6 +15,10 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONObject;
 
@@ -43,8 +46,8 @@ public class ConfirmActivity extends AppCompatActivity {
   private ProgressBar activityConfirmProgress;
   private TextView activityConfirmErrorMessage;
   private TextView activityConfirmPhoneNumberTitle;
-  private TextView activityConfirmCodeConfirmTitle;
   private RelativeLayout activityConfirmErrorLayout;
+  private TextInputLayout activityConfirmCodeConfirmContainer;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -62,18 +65,18 @@ public class ConfirmActivity extends AppCompatActivity {
     activityConfirmCodeConfirm = findViewById(R.id.activity_confirm_codeConfirm);
     activityConfirmPhoneNumber = findViewById(R.id.activity_confirm_phoneNumber);
     activityConfirmErrorMessage = findViewById(R.id.activity_confirm_errorMessage);
-    activityConfirmCodeConfirmTitle = findViewById(R.id.activity_confirm_codeConfirmTitle);
     activityConfirmPhoneNumberTitle = findViewById(R.id.activity_confirm_phoneNumberTitle);
+    activityConfirmCodeConfirmContainer = findViewById(R.id.activity_confirm_codeConfirm_container);
 
     Context context = LocaleHelper.onAttach(this, getIntent().getStringExtra(EXTRA_LANG));
     Resources resources = context.getResources();
     this.setTitle(resources.getString(R.string.paycomTitle));
     activityConfirmError.setText(resources.getString(R.string.error));
     activityConfirmClose.setText(resources.getString(R.string.close));
-    activityConfirmCodeConfirmTitle.setText(resources.getString(R.string.codeConfirm));
+    activityConfirmCodeConfirmContainer.setHint(resources.getString(R.string.codeConfirm));
     activityConfirmPhoneNumberTitle.setText(resources.getString(R.string.codeSent));
     activityConfirmButton.setText(resources.getString(R.string.confirm));
-    activityConfirmCodeConfirmTitle.setText(resources.getString(R.string.codeConfirm));
+    activityConfirmCodeConfirmContainer.setHint(resources.getString(R.string.codeConfirm));
 
     initUI(null);
     token = getIntent().getStringExtra(ARG_TOKEN);
@@ -111,7 +114,7 @@ public class ConfirmActivity extends AppCompatActivity {
       confirm = getIntent().getParcelableExtra(ARG_CONFIRM);
     }
 
-    activityConfirmPhoneNumber.setText(confirm.getPhone());
+    activityConfirmPhoneNumber.setText("+" + confirm.getPhone());
     activityRepeatImage.setVisibility(View.GONE);
     activityConfirmTimer.setVisibility(View.VISIBLE);
     new CountDownTimer(confirm.getWait(), 1000) {

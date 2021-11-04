@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPaycomPrimary">#4591d1</color>
-    <color name="colorPaycomPrimaryDark">#4591d1</color>
+    <color name="colorPaycomPrimary">#29a3a3</color>
+    <color name="colorPaycomPrimaryDark">#29a3a3</color>
     <color name="colorPaycomAccent">@android:color/holo_blue_light</color>
 
     <color name="divider">#ffc4c4c4</color>
+    <color name="payment_screen_label_color">#99FFFFFF</color>
 </resources>

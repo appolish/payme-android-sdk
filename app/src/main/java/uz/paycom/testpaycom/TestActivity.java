@@ -1,13 +1,14 @@
 package uz.paycom.testpaycom;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import uz.paycom.payment.PaymentActivity;
 import uz.paycom.payment.model.Result;
@@ -22,7 +23,7 @@ import static uz.paycom.payment.PaymentActivity.EXTRA_SAVE;
 public class TestActivity extends AppCompatActivity {
 
   private static final String TAG = "TestActivity";
-  private static final String xAuth = "5a3bb098d9ffa237dc027290";
+  private static final String xAuth = "5e730e8e0b852a417aa49ceb";
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -40,8 +41,8 @@ public class TestActivity extends AppCompatActivity {
         final Double sum = Double.valueOf(activityTestSum.getText().toString());
         intent.putExtra(EXTRA_AMOUNT, sum);
         intent.putExtra(EXTRA_SAVE, activityTestMultiple.isChecked());
-        intent.putExtra(EXTRA_LANG, "RU");
-        PaycomSandBox.setEnabled(false);
+        intent.putExtra(EXTRA_LANG, "UZ");
+        PaycomSandBox.setEnabled(true);
         startActivityForResult(intent, 0);
       }
     });

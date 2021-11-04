@@ -18,7 +18,7 @@ class ViewDisable {
 
   void disableView() {
     view.setEnabled(false);
-    view.setAlpha(.3f);
+    view.setAlpha(.5f);
     view.setClickable(false);
   }
 }

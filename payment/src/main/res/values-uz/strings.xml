@@ -17,4 +17,5 @@
     <string name = "paycomTitle">Payme To\'lov</string>
     <string name="invalidCard">Karta raqami noto\'g\'ri kiritildi</string>
     <string name="card_balance_currency">so\'m</string>
+    <string name="powered_by">Powered by</string>
 </resources>

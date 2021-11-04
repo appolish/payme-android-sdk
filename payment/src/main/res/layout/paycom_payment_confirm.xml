@@ -1,142 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/margin_normal"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#353B48"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:padding="16dp"
     tools:context="uz.paycom.payment.ConfirmActivity">
 
-  <RelativeLayout
-      android:layout_width="match_parent"
-      android:layout_height="@dimen/errorLayoutSize"
-      android:background="@android:color/holo_red_light"
-      android:id="@+id/activity_confirm_errorLayout"
-      android:visibility="gone"
-      >
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginLeft="@dimen/margin_medium"
-        android:background="@drawable/ic_warning"
-        />
-    <TextView
+    <RelativeLayout
+        android:id="@+id/activity_confirm_errorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/errorLayoutSize"
+        android:background="@android:color/holo_red_light"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:background="@drawable/ic_warning" />
+
+        <TextView
+            android:id="@+id/activity_confirm_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="@string/error"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textSize_micro"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/activity_confirm_errorMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/margin_small"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textSize_tiny"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/activity_confirm_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/margin_small"
+            android:padding="@dimen/margin_tiny"
+            android:text="@string/close"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textSize_small"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/activity_confirm_progress"
+        style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:textSize="@dimen/textSize_micro"
-        android:textColor="@android:color/white"
-        android:layout_marginTop="@dimen/margin_small"
-        android:textStyle="bold"
-        android:text="@string/error"
-        android:id="@+id/activity_confirm_error"
-        />
+        android:visibility="gone" />
+
     <TextView
+        android:id="@+id/activity_confirm_timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/textSize_tiny"
+        android:layout_above="@+id/activity_confirm_layout"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/margin_normal"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/textSize_large"
+        android:textStyle="bold"
+        tools:text="0:35" />
+
+    <ImageView
+        android:id="@+id/activity_repeat_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/activity_confirm_layout"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/ic_repeat"
+        android:layout_marginBottom="@dimen/margin_normal"
+        android:visibility="gone"
+        app:tint="@android:color/white" />
+
+    <LinearLayout
+        android:id="@+id/activity_confirm_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:textStyle="bold"
-        android:layout_marginTop="@dimen/margin_small"
-        android:textColor="@android:color/white"
-        android:id="@+id/activity_confirm_errorMessage"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:padding="@dimen/margin_tiny"
-        android:textSize="@dimen/textSize_small"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:layout_marginTop="@dimen/margin_small"
-        android:text="@string/close"
-        android:id="@+id/activity_confirm_close"
-        />
-  </RelativeLayout>
+        android:orientation="vertical">
 
-  <ProgressBar
-      style="?android:attr/progressBarStyle"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_centerHorizontal="true"
-      android:visibility="gone"
-      android:id="@+id/activity_confirm_progress"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/activity_confirm_codeConfirm_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            app:boxStrokeColor="@drawable/text_input_edittext_box_stroke_color"
+            app:endIconMode="clear_text"
+            app:endIconTint="#99FFFFFF"
+            android:hint="@string/codeConfirm">
 
-  <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:textStyle="bold"
-      android:textSize="@dimen/textSize_micro"
-      android:layout_centerHorizontal="true"
-      android:layout_marginBottom="@dimen/margin_micro"
-      android:layout_above="@+id/activity_confirm_layout"
-      android:id="@+id/activity_confirm_timer"
-      tools:text="0:35"
-      />
-  <ImageView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_centerHorizontal="true"
-      android:layout_above="@+id/activity_confirm_layout"
-      android:background="@drawable/ic_repeat"
-      android:visibility="gone"
-      android:id="@+id/activity_repeat_image"
-      />
-  <LinearLayout
-      android:id="@+id/activity_confirm_layout"
-      android:orientation="vertical"
-      android:layout_centerInParent="true"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      >
-    <TextView
-        android:text="@string/codeConfirm"
-        android:textStyle="bold"
-        android:textSize="@dimen/textSize_micro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/activity_confirm_codeConfirmTitle"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:maxLength="6"
-        android:ems="10"
-        android:id="@+id/activity_confirm_codeConfirm"
-        />
-    <TextView
-        android:text="@string/codeSent"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="@dimen/textSize_tiny"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/activity_confirm_phoneNumberTitle"
-        />
-    <TextView
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="@dimen/textSize_normal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/activity_confirm_phoneNumber"
-        tools:text="+999 94 699 ** 18"
-        />
-    <Button
-        android:text="@string/confirm"
-        android:layout_marginTop="@dimen/margin_micro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/activity_confirm_button"
-        />
-  </LinearLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/activity_confirm_codeConfirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textColor="@android:color/white"
+                android:textColorHint="#4DFFFFFF"
+                android:inputType="number"
+                android:maxLength="6"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/activity_confirm_phoneNumberTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/payment_screen_label_color"
+            android:text="@string/codeSent"
+            android:textSize="@dimen/textSize_tiny"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/activity_confirm_phoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textSize_normal"
+            android:textStyle="bold"
+            tools:text="+999 94 699 ** 18" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/activity_confirm_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/confirm" />
+    </LinearLayout>
 
 </RelativeLayout>
