@@ -62,7 +62,6 @@ public class PaymentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.paycom_payment_main);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
 
         activityMainClose = findViewById(R.id.activity_main_close);
         activityMainContinue = findViewById(R.id.activity_main_continue);
