@@ -6,4 +6,5 @@
 
     <color name="divider">#ffc4c4c4</color>
     <color name="payment_screen_label_color">#99FFFFFF</color>
+    <color name="payment_verification_code_color">#000000</color>
 </resources>
