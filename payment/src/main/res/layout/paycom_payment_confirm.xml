@@ -151,6 +151,7 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
             android:layout_marginTop="@dimen/margin_normal"
+            android:textStyle="bold"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/confirm" />
