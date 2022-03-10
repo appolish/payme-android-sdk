@@ -1,7 +1,9 @@
 package uz.paycom.payment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.cardview.widget.CardView;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -52,7 +55,8 @@ public class PaymentActivity extends AppCompatActivity {
     public CheckBox activityMainCardRemember;
     public Button activityMainContinue;
     public ProgressBar activityMainProgress;
-    public ImageView activityCloseButton;
+    public CardView activityCloseButton;
+    public TextView activityMainPrivacyPolicy;
 
     public String lang;
     public Double amount;
@@ -78,6 +82,7 @@ public class PaymentActivity extends AppCompatActivity {
         activityMainDateExpireTitle = findViewById(R.id.activity_main_dateExpireTitle);
         activityMainErrorLayoutError = findViewById(R.id.activity_main_errorLayout_error);
         activityCloseButton = findViewById(R.id.close_button);
+        activityMainPrivacyPolicy = findViewById(R.id.privacy_policy_button);
 
         initUI();
 
@@ -118,6 +123,14 @@ public class PaymentActivity extends AppCompatActivity {
             public void onClick(View view) {
                 finish();
                 setResult(RESULT_CANCELED);
+            }
+        });
+
+        activityMainPrivacyPolicy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://cdn.payme.uz/terms/uz/privacy_policy.htm"));
+                startActivity(browserIntent);
             }
         });
     }

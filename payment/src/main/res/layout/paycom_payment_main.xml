@@ -80,15 +80,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp">
 
-                <ImageView
+                <androidx.cardview.widget.CardView
                     android:id="@+id/close_button"
-                    android:layout_width="24dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentStart="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/ic_close"
-                    app:tint="@android:color/white" />
+                    app:cardBackgroundColor="#ff7675"
+                    app:cardElevation="5dp">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_close"/>
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/powered_by_text"
@@ -241,6 +247,23 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/margin_normal"
                 android:visibility="gone" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/payment_screen_label_color"
+                android:text="Ushbu to'lov sahifasi Payme\u2122 tomonidan qo'llab-quvvatlanadi va kiritilgan barcha karta ma'lumotlari Payme\u2122 serverlarida saqlanadi."/>
+            <TextView
+                android:id="@+id/privacy_policy_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="10dp"
+                android:paddingStart="10dp"
+                android:layout_gravity="end"
+                android:textColor="#74b9ff"
+                android:text="@string/privacy_policy"
+                tools:ignore="RtlSymmetry" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
