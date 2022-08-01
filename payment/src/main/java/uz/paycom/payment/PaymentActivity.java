@@ -129,7 +129,7 @@ public class PaymentActivity extends AppCompatActivity {
         activityMainPrivacyPolicy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://cdn.payme.uz/terms/uz/privacy_policy.htm"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/appolish/payme-android-sdk"));
                 startActivity(browserIntent);
             }
         });
