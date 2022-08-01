@@ -253,8 +253,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:drawableStart="@drawable/ic_lock"
+                android:drawableTint="@android:color/white"
+                android:drawablePadding="16dp"
                 android:textColor="@color/payment_screen_label_color"
-                android:text="Ushbu to'lov sahifasi Payme\u2122 tomonidan qo'llab-quvvatlanadi va kiritilgan barcha karta ma'lumotlari Payme\u2122 serverlarida saqlanadi."/>
+                android:text="@string/safe_payment_info"/>
             <TextView
                 android:id="@+id/privacy_policy_button"
                 android:layout_width="wrap_content"
@@ -263,7 +266,7 @@
                 android:paddingStart="10dp"
                 android:layout_gravity="end"
                 android:textColor="#74b9ff"
-                android:text="@string/privacy_policy"
+                android:text="@string/checkout_code"
                 tools:ignore="RtlSymmetry" />
         </LinearLayout>
     </LinearLayout>
